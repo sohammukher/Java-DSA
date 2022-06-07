@@ -1,3 +1,9 @@
+//        *
+//        **
+//        ***
+//        ****
+//        *****
+
 public class DegreeRotatedPyramid {
 
     public static void main(String[] args) {
