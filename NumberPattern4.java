@@ -5,8 +5,6 @@
 //        10101
 public class NumberPattern4 {
     public static void main(String[] args) {
-
-
         int numberOfRows = 5;
         //Take a random number to print
         int numberToPrint = 1;
@@ -16,7 +14,6 @@ public class NumberPattern4 {
                 System.out.print(numberToPrint%2);
                 //Increment the number we took
                 numberToPrint++;
-
             }
             System.out.println();
         }
