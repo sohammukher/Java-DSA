@@ -14,7 +14,8 @@ public class keypadCombinations {
         char currentCharacter = numberDialed.charAt(Index);
 
         //Get possible value at current number dialed
-        String mappingForCurrentDigit = keypad[currentCharacter - '0'];//will give us Index relevant to current Number
+        //VERY IMPORTANT REMEMBER BELOW TO CONVERT TO INDEX FROM GIVEN CHARACTER VALUE FOR A NUMBER
+        String mappingForCurrentDigit = keypad[(currentCharacter) - '0'];//will give us Index relevant to current Number
 
         //Call the recursive function for each choice we have, for that number
         for (int i = 0; i < mappingForCurrentDigit.length(); i++) {
