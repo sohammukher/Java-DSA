@@ -104,9 +104,6 @@ public class NQueens {
                 }else{
                     currentRow+='.';
                 }
-
-
-
             }
             //Saving Current Row into Temporary Board Before Saving
             newBoard.add(currentRow);
