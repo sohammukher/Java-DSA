@@ -49,6 +49,7 @@ public class NQueenEasy {
                 if (solveNQueens(board, col + 1) == true)
                     return true;
                 else {
+                    //REMEMBER OTHER PEOPLE WON'T PUT THIS ELSE BUT GOOD TO PUT FOR UNDERSTANDING
                     //If subsequent placements don't reach a solution, then we Backtrack
                     board[row][col] = 0;
                 }
