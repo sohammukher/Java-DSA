@@ -1,4 +1,4 @@
-public class LinkedList {
+public class LinkedList<S> {
     public static Node head;
     public static int sizeOfLL = 0;
 
