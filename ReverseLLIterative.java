@@ -25,7 +25,7 @@ public class ReverseLLIterative {
             current = next;
 
         }
-        //VV IMPORTANT at this point head is still at the beginning, so if we dont make head.next = null
+        //VV IMPORTANT at this point head is still at the beginning, so if we don't make head.next = null
         //then this will keep on looping, as LAST NODE SHOULD ALWAYS POINT TO NULL, ELSE LAST NODE WILL POINT
         //SECOND LAST NODE Always
         LinkedList.head.next = null;
