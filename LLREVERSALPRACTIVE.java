@@ -1,4 +1,4 @@
-public class ReverseLLReccursive {
+public class LLREVERSALPRACTIVE {
     public static Node head;
     public static int sizeOfLL = 0;
 
@@ -59,7 +59,7 @@ public class ReverseLLReccursive {
     //add Node to Beginning
     public static void addFirst(String data){
         //Creating new node to attach in list
-       Node newNode = new Node(data);
+        Node newNode = new Node(data);
 
         //If this is the first Node then Set this to head and Return
         if(head == null){
@@ -114,49 +114,72 @@ public class ReverseLLReccursive {
         currentNode.next = newNode;
         return;
     }
-    //REVERSE FUNCTION
-    public static Node ReverseLLRecursive(Node head){
-        printLL(head);
-
-        if(head == null || head.next == null){
-            System.out.println("Either Empty LL or Only One Node, BASE CASE HIT");
-            System.out.println("returning, LL has BEEN REVERSED");
-            return head;
-        }
-
-
-        //Getting Previously Reversed LL, Assumption
-        Node newHead = ReverseLLRecursive(head.next);
-
-        //**Remember Here head is the current node
-
-        //Making Next Node of Current Node Point to Current Node
-        head.next.next = head;
-        //Making Current Node Point to null, i.e. breaking the connection of current node with current.next
-        //Because it is the last node of our reversed LL, it has to point to NULL
-        head.next = null;
-
-        //Returning the Head of the Reversed List, as our List is reversed, that will be the head of the whole list
-        return newHead;
-    }
 
     public static void printSizeOfLL(){
         System.out.println("Size of Linked List is: "+sizeOfLL);
     }
     public static void main(String[] args) {
+        //Inserting at the Beginning
+//        addFirst("A1");
+//        addFirst("A2");
+//        addFirst("A3");
+//        printLL(head);
 
-        addEnd("S");
-        addEnd("O");
-        addEnd("H");
-        addEnd("A");
-        addEnd("M");
-        printLL(head);
+        addEnd("A1");
+        addEnd("A2");
+        addEnd("A3");
 
-        System.out.println("PRINTING REVERSED LL");
-        printLL(ReverseLLRecursive(head));
+        printSizeOfLL();
 
+        Node newHead = ReverseLLRecursive(head);
 
+        printLL(newHead);
 
     }
+    public static Node ReverseLLRecursive(Node currentNode){
+        System.out.println("Inside Iteration "+currentNode.data);
+        if(currentNode.next == null|| currentNode == null){
+            return currentNode;
+        }
+
+
+        Node reversedLLFromPreviousRecursions = ReverseLLRecursive(currentNode.next);
+        //Like a Circle, Current node's next node we are making current Node
+        currentNode.next.next = currentNode;
+        currentNode.next = null;
+
+        return reversedLLFromPreviousRecursions;
+
+    }
+
+    public static  void IterativeReverse(){
+
+        if(head == null || head.next == null){
+            return;
+        }
+        Node previous = head;
+        Node current = head.next;
+        Node next;
+
+        while (current.next !=null){
+            //Saving Value, so that it does not get lost on reassignment
+            next = current.next;
+
+            //Reversing the Direction of the list
+            current.next = previous;
+
+            //Traversing the LL
+            previous = current;
+            current = next;
+
+        }
+
+        //Reached the end
+        current.next = previous;
+        head.next = null;
+        head = current;
+
+    }
+
 
 }
