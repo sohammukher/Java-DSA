@@ -30,8 +30,10 @@ public class FindandDeleteNthNode{
             SizeOfLL++;
             current = current.next;
         }
-        //If n == SizeOfLL then Return Next of Head
-        if( n ==SizeOfLL ){
+        //When below is the case, consider circular LL, because size starts from 1 and not 0 like Index
+        //When n == SizeOfLL then basically we want to remove the head basically
+        //So we return next node from the head.
+        if( n == SizeOfLL ){
             return head.next;
         }
         //Calculating nth from the End will with which index from the Start
