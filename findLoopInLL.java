@@ -26,20 +26,21 @@ public class findLoopInLL {
     }
 
     public static boolean isCycle(ListNode head){
+        //If No Nodes or Only One Node in the LL then Just Return
         if(head == null || head.next == null){
             return false;
         }
 
         ListNode fastNode = head;
         ListNode slowNode = head;
-
+        //Remember while always has && Condition never or
         while (fastNode!=null && fastNode.next != null ){//when fastNode.next == null, means we are standing at last node.
             //when fastNode == null means list has ended
             slowNode = slowNode.next;
             fastNode = fastNode.next.next;
 
             //Check after first movement as if we do not do that then, it will compare head to head and fail
-            if(slowNode == fastNode){
+            if(slowNode == fastNode){//If 2 two Pointers meet then, This has a loop
                 System.out.println("Cycle Found, Cycle Starting Point is "+fastNode.val);
                 return true;
             }
